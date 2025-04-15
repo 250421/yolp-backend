@@ -7,5 +7,5 @@ import com.revature.yolp.models.Restaurant;
 
 @Repository
 public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
-
+    boolean existsByName(String name);
 }

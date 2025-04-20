@@ -14,6 +14,7 @@ import com.revature.yolp.utils.custom_exceptions.InvalidPasswordException;
 import com.revature.yolp.utils.custom_exceptions.InvalidPermissionException;
 import com.revature.yolp.utils.custom_exceptions.InvalidSessionException;
 import com.revature.yolp.utils.custom_exceptions.InvalidUsernameException;
+import com.revature.yolp.utils.custom_exceptions.RestaurantNotFoundException;
 import com.revature.yolp.utils.custom_exceptions.SignUpException;
 import com.revature.yolp.utils.custom_exceptions.UnauthorizedException;
 
@@ -82,5 +83,13 @@ public class ExceptionController {
         response.put("message", e.getMessage());
         response.put("timestamp", LocalDateTime.now());
         return ResponseEntity.badRequest().body(response);
+    }
+
+    @ExceptionHandler(RestaurantNotFoundException.class)
+    public ResponseEntity<Map<String, Object>> handleRestaurantNotFoundException(RestaurantNotFoundException e) {
+        Map<String, Object> response = new HashMap<>();
+        response.put("message", e.getMessage());
+        response.put("timestamp", LocalDateTime.now());
+        return ResponseEntity.status(404).body(response);
     }
 }

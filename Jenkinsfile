@@ -5,7 +5,6 @@ pipeline {
         DOCKER_IMAGE = 'quizzer-app'
         DOCKER_TAG = "${BUILD_NUMBER}"
         DB_CREDS = credentials('DB_CREDENTIALS')
-        JWT_SECRET = credentials('JWT_SECRET')
         DB_URL = credentials('DB_URL')
     }
     

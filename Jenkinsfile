@@ -40,7 +40,6 @@ pipeline {
                         -e SPRING_DATASOURCE_URL=${DB_URL} \
                         -e SPRING_DATASOURCE_USERNAME=${DB_CREDS_USR} \
                         -e SPRING_DATASOURCE_PASSWORD=${DB_CREDS_PSW} \
-                        -e JWT_SECRET=${JWT_SECRET} \
                         --restart unless-stopped \
                         ${DOCKER_IMAGE}:${DOCKER_TAG}
                     """
